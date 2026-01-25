@@ -17,10 +17,9 @@ const Projects = () => {
         </Typography>
 
         <Box className="timeline">
-          {/* PROJECT 1 */}
+
           <Box className="project-card">
             <Box className="timeline-dot" />
-
             <Typography variant="h6" fontWeight="bold">
               React Project 1: Money Tree
             </Typography>
@@ -68,7 +67,6 @@ const Projects = () => {
             </Typography>
           </Box>
 
-          {/* PROJECT 2 */}
           <Box className="project-card">
             <Box className="timeline-dot" />
 

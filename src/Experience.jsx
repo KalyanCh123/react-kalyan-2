@@ -3,8 +3,7 @@ import { Box, Typography } from "@mui/material";
 
 const Experience = () => {
   return (
-    <Box id="experience" className="experience-container">
-      {/* TITLE */}
+    <Box id="experience">
       <Typography style={{ fontSize: '40px',color: '#1976d2',textShadow: '1px 1px 2px #000',marginBottom: '30px',marginLeft: '600px' }}>
         Experience
       </Typography>
@@ -14,9 +13,7 @@ const Experience = () => {
         skills across front-end development and sales roles.
       </Typography>
 
-      {/* TIMELINE */}
       <Box className="experience-timeline">
-        {/* CARD 1 */}
         <Box className="experience-card">
           <Box className="timeline-dot" />
           <Typography component="h3">
@@ -48,7 +45,6 @@ const Experience = () => {
           </Box>
         </Box>
 
-        {/* CARD 2 */}
         <Box className="experience-card">
           <Box className="timeline-dot" />
           <Typography component="h3">Inside Sales Specialist</Typography>
@@ -78,7 +74,6 @@ const Experience = () => {
           </Box>
         </Box>
 
-        {/* CARD 3 */}
         <Box className="experience-card">
           <Box className="timeline-dot" />
           <Typography component="h3">Sales Associate</Typography>

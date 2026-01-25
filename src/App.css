@@ -184,18 +184,27 @@
 }
 
 .about-list {
-  margin-top: 10px;
+  margin-top: 5px;
   text-align: left;
 }
-
+.about-lists {
+  margin-top: 30px;
+  text-align: left;
+}
+.job-title {
+  margin: 10px 0;
+}
+.company-name {
+  font-weight: 1000;
+  font-size: 20px;
+}
+.section {
+  scroll-margin-top: 140px;
+}
 .about-muted {
   font-size: 13px;
   opacity: 0.9;
   margin-bottom: 10px;
-}
-.experience-container {
-  padding: 20px 0;
-  margin-top: 100px;
 }
 
 .experience-title {
@@ -360,6 +369,39 @@
   color: #d0d0d0;
   font-size: 14px;
 }
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7px;
+}
+
+.contact-label {
+  color: #fff;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.contact-input,
+.contact-textarea {
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 3px 12px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: #38bdf8;
+}
+
+.contact-error {
+  color: #f44336;
+  font-size: 12px;
+  margin-top: 4px;
+}
 .projects-container {
   padding: 20px 0;
 }
@@ -375,11 +417,34 @@
   color: #363637fe;
   font-weight: bold;
 }
+/* Loader.css */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
 
-/* TIMELINE FIX */
+.loader-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ddd;
+  border-top: 6px solid #1976d2;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .timeline {
   position: relative;
-  max-width: 900px;   /* 🔥 KEY FIX */
+  max-width: 900px;
   margin: 0 auto;
   padding-left: 60px;
 }
@@ -394,7 +459,6 @@
   background: #3782ce;
 }
 
-/* CARD WIDTH FIX */
 .project-card {
   background: #0f172a;
   color: white;

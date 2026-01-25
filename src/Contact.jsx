@@ -1,19 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  Box,
-  Grid,
-  Typography,
-  Button,
-  IconButton,
-  Modal
-} from "@mui/material";
-
+import { Box, Grid, Typography, Button, IconButton, Modal, TextField } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ChatIcon from "@mui/icons-material/Chat";
-
-const Contact = () => {
+import Loader from "./Loader";
+import CircularProgress from "@mui/material/CircularProgress";
+const Contact = ({ setLoading }) => {
   const nameRef = useRef(null);
 
   const [name, setName] = useState("");
@@ -24,41 +17,49 @@ const Contact = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [pendingSuccess, setPendingSuccess] = useState(false);
 
-  /* ---------------- VALIDATION ---------------- */
   const validateForm = () => {
-    setShowErrors(true);
-    if (!name || !email || !message) {
+    setTouched({ name: true, email: true, message: true });
+    validateField("name", name);
+    validateField("email", email);
+    validateField("message", message);
+    if (
+      name.trim().length < 3 ||
+      !emailRegex.test(email) ||
+      message.trim().length < 10
+    ) {
       nameRef.current?.focus();
       return false;
     }
     return true;
   };
 
-  /* ---------------- SEND ACTIONS ---------------- */
   const handleWhatsAppSend = () => {
     if (!validateForm()) return;
-
+    setLoading(true);
     const text =
       `Hello Kalyan,%0A%0A` +
       `Name: ${name}%0A` +
       `Email: ${email}%0A` +
       `Message: ${message}`;
-
-    window.open(`https://wa.me/917097173125?text=${text}`, "_blank");
-    setPendingSuccess(true);
+    setTimeout(() => {
+      window.open(`https://wa.me/917097173125?text=${text}`, "_blank");
+      setPendingSuccess(true);
+      setLoading(false);
+    }, 2500);
   };
 
   const handleEmailSend = () => {
     if (!validateForm()) return;
-
-    window.location.href =
-      `mailto:kalyanch692@gmail.com?subject=New Contact Message&body=` +
-      `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-
-    setPendingSuccess(true);
+    setLoading(true);
+    setTimeout(() => {
+      window.location.href =
+        `mailto:kalyanch692@gmail.com?subject=New Contact Message&body=` +
+        `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+      setPendingSuccess(true);
+      setLoading(false);
+    }, 2500);
   };
 
-  /* ---------------- SUCCESS AFTER RETURN ---------------- */
   useEffect(() => {
     const handler = () => {
       if (document.visibilityState === "visible" && pendingSuccess) {
@@ -79,10 +80,17 @@ const Contact = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  /* ---------------- STYLES ---------------- */
   const card = {
     background: "#0f172a",
     color: "#fff",
+    p: 5,
+    borderRadius: "14px",
+    boxShadow: "0 6px 18px rgba(0,0,0,0.6)"
+  };
+  const cards = {
+    background: "#0f172a",
+    color: "#fff",
+    height: '320px',
     p: 5,
     borderRadius: "14px",
     boxShadow: "0 6px 18px rgba(0,0,0,0.6)"
@@ -106,7 +114,58 @@ const Contact = () => {
     "&:hover": { transform: "scale(1.5)" }
   };
 
-  /* ---------------- UI ---------------- */
+  const nameRegex = /^[A-Za-z\s]{3,}$/;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@(?:gmail|yahoo|outlook|hotmail|icloud|protonmail)\.(com|in|co\.in)$/;
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    message: false
+  });
+  const validateField = (field, value) => {
+    let error = "";
+    if (!value.trim()) {
+      error = "* This field is required! *";
+    } else {
+      if (field === "name") {
+        if (!/^[A-Za-z\s]+$/.test(value)) {
+          error = "* Name should contain only letters! *";
+        } else if (value.trim().length < 3) {
+          error = "* Name must be at least 3 characters! *";
+        }
+      }
+      if (field === "email") {
+        if (!emailRegex.test(value)) {
+          error = "* Enter a valid email (gmail, yahoo, outlook etc.)! *";
+        }
+      }
+      if (field === "message") {
+        if (value.trim().length < 10) {
+          error = "* Message must be at least 10 characters! *";
+        }
+      }
+    }
+    setErrors((prev) => ({ ...prev, [field]: error }));
+  };
+  const isFormValid =
+    name.trim().length >= 3 &&
+    emailRegex.test(email) &&
+    message.trim().length >= 10 &&
+    !errors.name &&
+    !errors.email &&
+    !errors.message;
+  const runWithPageLoader = (action, delay = 1000) => {
+    setLoading(true);
+    setTimeout(() => {
+      action();
+      setLoading(false);
+    }, delay);
+  };
+
   return (
     <Box sx={{ p: { xs: 2, md: 6 }, background: "#cfc6c6" }}>
       <Typography variant="h4" textAlign="center" color="#1976d2" fontWeight="bold">
@@ -118,19 +177,39 @@ const Contact = () => {
       </Typography>
 
       <Grid container spacing={4} justifyContent="center">
-        {/* CONTACT INFO */}
         <Grid item xs={12} md={4}>
-          <Box sx={card}>
+          <Box sx={cards}>
             <Typography variant="h6">Contact Information</Typography>
 
             <Typography mt={2}>
-              📧 Email : <a href="mailto:kalyanch692@gmail.com" style={{ color: "#4fc3f7" }}>
+              📧 Email : <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  runWithPageLoader(() => {
+                    window.location.href = "mailto:kalyanch692@gmail.com";
+                  });
+                }}
+                style={{ color: "#4fc3f7" }}
+              >
                 kalyanch692@gmail.com
               </a>
             </Typography><br />
 
             <Typography mt={1}>
-              👤 LinkedIn : <a href="https://linkedin.com" style={{ color: "#4fc3f7" }}>
+              👤 LinkedIn : <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  runWithPageLoader(() =>
+                    window.open(
+                      "https://www.linkedin.com/in/kalyan-chekuru-ba8829156",
+                      "_blank"
+                    )
+                  );
+                }}
+                style={{ color: "#4fc3f7" }}
+              >
                 View Profile
               </a>
             </Typography><br />
@@ -141,44 +220,50 @@ const Contact = () => {
 
             <Box mt={3.5} display="flex" gap={2} mb={2}>
               <IconButton
-                component="a"
-                href="https://www.linkedin.com/in/kalyan-chekuru-ba8829156"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() =>
+                  runWithPageLoader(() =>
+                    window.open(
+                      "https://www.linkedin.com/in/kalyan-chekuru-ba8829156",
+                      "_blank"
+                    )
+                  )
+                }
                 sx={{ ...iconHover, background: "#0A66C2" }}
               >
                 <LinkedInIcon sx={{ color: "#fff" }} />
               </IconButton>
 
               <IconButton
-                component="a"
-                href="https://wa.me/917097173125"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() =>
+                  runWithPageLoader(() =>
+                    window.open("https://wa.me/917097173125", "_blank")
+                  )
+                }
                 sx={{ ...iconHover, background: "#25D366" }}
               >
                 <WhatsAppIcon sx={{ color: "#fff" }} />
               </IconButton>
 
               <IconButton
-                component="a"
-                href="https://github.com/KalyanCh123"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() =>
+                  runWithPageLoader(() =>
+                    window.open("https://github.com/KalyanCh123", "_blank")
+                  )
+                }
                 sx={{ ...iconHover, background: "#24292e" }}
               >
                 <GitHubIcon sx={{ color: "#fff" }} />
               </IconButton>
-
               <IconButton
+                onClick={() =>
+                  runWithPageLoader(() => {
+                    setMessageIconClicked(true);
+                    nameRef.current?.focus();
+                  }, 300)
+                }
                 sx={{
                   ...iconHover,
-                  background:
-                    messageIconClicked && !name ? "red" : "#1976d2"
-                }}
-                onClick={() => {
-                  setMessageIconClicked(true);
-                  nameRef.current?.focus();
+                  background: messageIconClicked && !name ? "red" : "#1976d2"
                 }}
               >
                 <ChatIcon sx={{ color: "#fff" }} />
@@ -188,47 +273,90 @@ const Contact = () => {
           </Box>
         </Grid>
 
-        {/* MESSAGE FORM */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Box sx={card}>
             <Typography variant="h6">Send a Message to Me</Typography><br />
+            <Box className="contact-field">
+              <Typography className="contact-label">Name</Typography>
+              <input
+                ref={nameRef}
+                value={name}
+                placeholder="Kalyan *** ( Your Name )"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value === "" || /^[A-Za-z\s]+$/.test(value)) {
+                    setName(value);
+                    if (touched.name) {
+                      validateField("name", value);
+                    }
+                  }
+                }}
+                onBlur={(e) => {
+                  setTouched((t) => ({ ...t, name: true }));
+                  validateField("name", e.target.value);
+                }}
+                className="contact-input"
+              />
+              {touched.name && errors.name && (
+                <div className="contact-error">{errors.name}</div>
+              )}            </Box>
+            <Box className="contact-field">
+              <Typography className="contact-label">Email</Typography>
+              <input
+                value={email}
+                placeholder="Kalyan *** @gmail.com ( Your Email )"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setEmail(value);
+                  if (touched.email) {
+                    validateField("email", value);
+                  }
+                }}
+                onBlur={(e) => {
+                  setTouched((t) => ({ ...t, email: true }));
+                  validateField("email", e.target.value);
+                }}
+                className="contact-input"
+              />
+              {touched.email && errors.email && (
+                <div className="contact-error">{errors.email}</div>
+              )}            </Box>
+            <Box className="contact-field">
+              <Typography className="contact-label">Message</Typography>
+              <textarea
+                value={message}
+                placeholder="I'd like to discuss a React based project..."
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setMessage(value);
 
-            <input
-              ref={nameRef}
-              style={{ ...inputStyle(showErrors && !name), height: 30 }}
-              placeholder="  Kalyan *** ( Your Name )"
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-                setMessageIconClicked(false);
-              }}
-            /><br /><br />
+                  // ✅ validate while typing ONLY after blur
+                  if (touched.message) {
+                    validateField("message", value);
+                  }
+                }}
+                onBlur={(e) => {
+                  setTouched((t) => ({ ...t, message: true }));
+                  validateField("message", e.target.value);
+                }}
+                className="contact-textarea"
+                rows={5}
+              />
 
-            <input
-              style={{ ...inputStyle(showErrors && !email), height: 30 }}
-              placeholder="  Kalyan *** @gmail.com ( Your Email )"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            /><br /><br />
-
-            <textarea
-              style={{ ...inputStyle(showErrors && !message), height: 100 }}
-              placeholder={` I'd like to discuss a React based project ... ... ...
-                                  
-              ( Your Message )`}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
+              {touched.message && errors.message && (
+                <div className="contact-error">{errors.message}</div>
+              )}            </Box>
             <Grid container spacing={2} mt={1}>
               <Grid item xs={12} sm={6}>
                 <Button
                   fullWidth
+                  disabled={!isFormValid}
                   onClick={handleWhatsAppSend}
                   sx={{
                     background: "#25D366",
-                    width: '250px',
+                    width: "250px",
                     color: "#fff",
-                    "&:hover": { transform: "scale(1.05)" }
+                    "&:hover": { transform: "scale(1.25)" }
                   }}
                 >
                   Send WhatsApp
@@ -237,25 +365,23 @@ const Contact = () => {
               <Grid item xs={12} sm={6}>
                 <Button
                   fullWidth
+                  disabled={!isFormValid}
                   onClick={handleEmailSend}
                   sx={{
                     background: "#1976d2",
-                    width: '250px',
+                    width: "250px",
                     color: "#fff",
-                    "&:hover": { transform: "scale(1.05)" }
+                    "&:hover": { transform: "scale(1.25)" }
                   }}
                 >
                   Send Email
                 </Button>
               </Grid>
             </Grid>
-
           </Box>
         </Grid>
       </Grid>
-
-      {/* SUCCESS MODAL */}
-      <Modal open={showSuccess}>
+      {<Modal open={showSuccess}>
         <Box className="modal-overlay">
           <Box className="modal-content">
             <button className="close-btn" onClick={handleCloseSuccess}>✕</button>
@@ -274,7 +400,7 @@ const Contact = () => {
             </button>
           </Box>
         </Box>
-      </Modal>
+      </Modal>}
     </Box>
   );
 };

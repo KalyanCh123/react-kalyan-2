@@ -34,7 +34,6 @@ const Skills = () => {
         marginTop: "150px",
       }}
     >
-      {/* TITLE */}
       <Typography sx={{ color: "#1976d2", fontSize: "2.5em", mb: 1 }}>
         Technical Skills
       </Typography>
@@ -43,7 +42,6 @@ const Skills = () => {
         A showcase of my expertise in React development and related technologies.
       </Typography>
 
-      {/* TECH SKILLS */}
       <Box
         sx={{
           display: "flex",
@@ -53,7 +51,6 @@ const Skills = () => {
           mb: "40px",
         }}
       >
-        {/* React Ecosystem */}
         <Box
           sx={{
             flex: 1,
@@ -120,7 +117,6 @@ const Skills = () => {
           ))}
         </Box>
 
-        {/* Frontend UI */}
         <Box
           sx={{
             flex: 1,
@@ -186,7 +182,6 @@ const Skills = () => {
         </Box>
       </Box>
 
-      {/* SOFT SKILLS */}
       <Typography sx={{ color: "#1976d2", fontSize: "2.5em", mb: 1 }}>
         Soft Skills
       </Typography>
@@ -208,23 +203,19 @@ const Skills = () => {
         {[
           {
             title: "UI Problem Solving",
-            text:
-              "Strong ability to analyze UI issues, debug frontend bugs, and implement clean, user-friendly solutions using React and modern web practices.",
+            text: "Strong ability to analyze UI issues, debug frontend bugs, and implement clean, user-friendly solutions using React and modern web practices.",
           },
           {
             title: "Communication & Requirement Understanding",
-            text:
-              "Effective at understanding UI requirements, discussing features with team members, and translating designs into functional and responsive interfaces.",
+            text: "Effective at understanding UI requirements, discussing features with team members, and translating designs into functional and responsive interfaces.",
           },
           {
             title: "Team Collaboration",
-            text:
-              "Comfortable working with designers, backend developers, and QA teams to build consistent, scalable, and maintainable frontend solutions.",
+            text: "Comfortable working with designers, backend developers, and QA teams to build consistent, scalable, and maintainable frontend solutions.",
           },
           {
             title: "Time Management & Code Discipline",
-            text:
-              "Skilled at managing tasks efficiently, meeting deadlines, and maintaining clean, readable code with proper structure and documentation.",
+            text: "Skilled at managing tasks efficiently, meeting deadlines, and maintaining clean, readable code with proper structure and documentation.",
           },
         ].map((skill) => (
           <Box

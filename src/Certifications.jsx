@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Grid,
-  Typography,
-  Modal,
-  Button
-} from "@mui/material";
+import { Box, Grid, Typography, Modal, Button } from "@mui/material";
 
 const certificates = [
   {
     title: "React Certified Developer",
     year: "React 2025",
-    description:
-      "Validates skills in developing custom applications using React, including component-based architecture and state management.",
+    description: "Validates skills in developing custom applications using React, including component-based architecture and state management.",
     ribbon: "React - Developer",
     border: "#1c73a5ff",
     ribbonBg: "#648390ff",
@@ -22,8 +15,7 @@ const certificates = [
   {
     title: "Web/Front-End Based Certification",
     year: "React 2024",
-    description:
-      "Demonstrates foundational React knowledge, including navigating the framework and component basics.",
+    description: "Demonstrates foundational React knowledge, including navigating the framework and component basics.",
     ribbon: "Web / Front-End",
     border: "#c0c0c0",
     ribbonBg: "#c0c0c0",
@@ -43,13 +35,17 @@ const certificates = [
   }
 ];
 
-export default function Certifications() {
+export default function Certifications({ setLoading }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(null);
 
   const handleOpen = (cert) => {
-    setActive(cert);
-    setOpen(true);
+    setLoading(true);
+    setTimeout(() => {
+      setActive(cert);
+      setOpen(true);
+      setLoading(false);
+    }, 500);
   };
 
   return (
@@ -74,7 +70,6 @@ export default function Certifications() {
         technologies and sales.
       </Typography>
 
-      {/* Cards */}
       <Grid container spacing={4} justifyContent="center">
         {certificates.map((cert, i) => (
           <Grid item key={i}>
@@ -119,7 +114,6 @@ export default function Certifications() {
         ))}
       </Grid>
 
-      {/* Footer text */}
       <Typography
         textAlign="center"
         mt={6}
@@ -130,7 +124,6 @@ export default function Certifications() {
         certifications and professional development. * * *
       </Typography>
 
-      {/* MODAL */}
       <Modal open={open} onClose={() => setOpen(false)}>
         <Box
           sx={{
@@ -147,7 +140,6 @@ export default function Certifications() {
             fontFamily: "Georgia, serif"
           }}
         >
-          {/* Ribbon */}
           <Box
             sx={{
               position: "absolute",

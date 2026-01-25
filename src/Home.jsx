@@ -12,14 +12,13 @@ frameworks like Jest and React Testing Library to ensure application reliability
 const Home = () => {
   return (
     <Box id="home">
-      {/* SCROLL TEXT */}
+      
       <Box className="scroll-wrapper">
         <Typography component="div" className="scroll-text">
           Welcome to Ch . Kalyan&apos;s portfolio
         </Typography>
       </Box>
 
-      {/* MAIN CONTENT */}
       <Box className="home-content">
         <Box className="home-text">
           <Typography component="h1" style={{ textAlign: 'center',marginBottom: '80px',marginLeft: '300px' }}>Home</Typography>

@@ -13,7 +13,7 @@ const tabs = [
 
 const Header = ({ activeTab, scrollToSection }) => {
   return (
-    <Box className="header-container">
+    <Box className="header-container" id="site-header">
       <Typography component="h1" className="header-title">
         Kalyan . Ch
       </Typography>

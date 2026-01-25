@@ -10,7 +10,7 @@ testing frameworks like Jest and React Testing Library, and best practices in so
 
 const About = () => {
   return (
-    <Box id="about" className="about-container" style={{marginBottom: '500px'}}>
+    <Box id="about" className="about-container">
       <Typography style={{ fontSize: '40px',color: '#1976d2',textShadow: '1px 1px 2px #000',marginBottom: '30px' }}>
         About
       </Typography>
@@ -37,10 +37,10 @@ const About = () => {
             performance in web applications. ***
           </Typography>
 
-          <Box className="about-list">
-            <Typography>✔️ React Developer at <strong>Virinchi Ltd.</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2024 – Present)</Typography><br/>
-            <Typography>✔️ Inside Sales Specialist at <strong>Byju&apos;s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edu.Tech</strong> (2022 – 2023)</Typography><br/>
-            <Typography>✔️ Sales Associate at <strong>Mind Brink Media &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pvt Ltd</strong> (2020 – 2022)</Typography><br/>
+          <Box className="about-lists">
+            <Typography>✔️ React Developer at <strong className="company-name">Virinchi Ltd.</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2024 – Present)</Typography><br/>
+            <Typography className="job-title">✔️ Inside Sales Specialist at <strong className="company-name">Byju&apos;s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edu.Tech</strong> (2022 – 2023)</Typography><br/>
+            <Typography>✔️ Sales Associate at <strong className="company-name">Mind Brink Media &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pvt Ltd</strong> (2020 – 2022)</Typography><br/>
           </Box>
         </Box>
 
@@ -48,9 +48,9 @@ const About = () => {
         <Box className="about-card education">
           <Typography component="h3">🎓 Education</Typography>
 
-          <Typography fontWeight="bold">
+          <strong className="company-name">
             🎓 GIST – Geethanjali Institute of Science & Technology
-          </Typography>
+          </strong><br/><br/>
           <Typography>
             • B.Tech (EEE) | 2015 – 2019 | GPA: 8.3
           </Typography><br/>
@@ -60,18 +60,18 @@ const About = () => {
             Systems, Control Systems, Electrical Machines, and Power Electronics. ***
           </Typography><br/>
 
-          <Typography fontWeight="bold">
+          <strong className="company-name">
             🏫 Sasikanth Reddy Jr College
-          </Typography>
+          </strong><br/><br/>
           <Typography>
             • Intermediate (MPC) | 2013 – 2015 | GPA: 9.1
           </Typography><br/>
 
-          <Typography fontWeight="bold">
+          <strong className="company-name">
             🏫 New Little Flowers EM High School
-          </Typography>
+          </strong><br/><br/>
           <Typography>
-            • Secondary School (10th) | 2012 – 2013 | GPA: 9.2
+            • Secondary School (10th) | 2012 – 2013 | &nbsp;&nbsp;&nbsp;&nbsp;GPA: 9.2
           </Typography>
         </Box>
 
@@ -86,11 +86,11 @@ const About = () => {
           </Typography><br/>
 
           <Box className="about-list">
-            <Typography>✔️ Reusable components with Hooks & &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Context API</Typography><br/>
-            <Typography>✔️ Redux & REST API integration</Typography><br/>
-            <Typography>✔️ Testing with Jest & React Testing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</Typography><br/>
-            <Typography>✔️ Responsive & accessible UI</Typography><br/>
-            <Typography>✔️ Performance optimization</Typography>
+            <Typography>✔️ Building reusable components using &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;React, Hooks & Context API</Typography><br/>
+            <Typography>✔️ State management with Redux and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integration of RESTful APIs</Typography><br/>
+            <Typography>✔️ Testing with Jest & React Testing Library</Typography><br/>
+            <Typography>✔️ Developing responsive and accessible UI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for cross-browser compatibility</Typography><br/>
+            <Typography>✔️ Optimizing performance, code quality, and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user experience in web applications</Typography>
           </Box>
         </Box>
       </Box>
