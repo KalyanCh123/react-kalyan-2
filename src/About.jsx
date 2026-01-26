@@ -11,7 +11,7 @@ testing frameworks like Jest and React Testing Library, and best practices in so
 const About = () => {
   return (
     <Box id="about" className="about-container">
-      <Typography style={{ fontSize: '40px',color: '#1976d2',textShadow: '1px 1px 2px #000',marginBottom: '30px' }}>
+      <Typography className="about-title">
         About
       </Typography>
       <Box className="about-text">
@@ -44,7 +44,6 @@ const About = () => {
           </Box>
         </Box>
 
-        {/* EDUCATION */}
         <Box className="about-card education">
           <Typography component="h3">🎓 Education</Typography>
 
@@ -75,10 +74,8 @@ const About = () => {
           </Typography>
         </Box>
 
-        {/* SPECIALIZATION */}
         <Box className="about-card specialization">
           <Typography component="h3">⚡ Specializations</Typography>
-
           <Typography>
             *** I specialize in modern front-end development with React,
             focusing on building scalable, maintainable, and high-performance

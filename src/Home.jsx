@@ -21,7 +21,7 @@ const Home = () => {
 
       <Box className="home-content">
         <Box className="home-text">
-          <Typography component="h1" style={{ textAlign: 'center',marginBottom: '80px',marginLeft: '300px' }}>Home</Typography>
+          <Typography component="h1" className="home-title">Home</Typography>
           <Typography component="h1" style={{marginBottom: '30px'}}>
             Kalyan Chekuru
           </Typography>
