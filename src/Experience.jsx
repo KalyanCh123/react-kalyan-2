@@ -4,14 +4,14 @@ import { Box, Typography } from "@mui/material";
 const Experience = () => {
   return (
     <Box id="experience">
-      <Typography style={{ fontSize: '40px',color: '#1976d2',textShadow: '1px 1px 2px #000',marginBottom: '30px',marginLeft: '600px' }}>
+      <Typography className="about-title">
         Experience
       </Typography>
 
-      <Typography className="experience-subtitle">
+      <Box className='about-texts'><Typography component="p">
         My journey developing technical, communication, and problem-solving
         skills across front-end development and sales roles.
-      </Typography>
+      </Typography></Box>
 
       <Box className="experience-timeline">
         <Box className="experience-card">

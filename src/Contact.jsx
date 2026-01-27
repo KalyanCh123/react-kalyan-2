@@ -168,13 +168,13 @@ const Contact = ({ setLoading }) => {
 
   return (
     <Box sx={{ p: { xs: 2, md: 6 }, background: "#cfc6c6" }}>
-      <Typography variant="h4" textAlign="center" color="#1976d2" fontWeight="bold">
+      <Typography className="about-title">
         Get In Touch
       </Typography>
 
-      <Typography textAlign="center" mt={2} mb={5} fontWeight="bold">
+      <Box className='about-texts'><Typography component="p">
         Have a project in mind or want to discuss React based solutions/projects or any updates? I’d love to hear from you.
-      </Typography>
+      </Typography></Box>
 
       <Grid container spacing={4} justifyContent="center">
         <Grid item xs={12} md={4}>
@@ -325,12 +325,13 @@ const Contact = ({ setLoading }) => {
               <Typography className="contact-label">Message</Typography>
               <textarea
                 value={message}
-                placeholder="I'd like to discuss a React based project..."
+                placeholder={`I'd like to discuss a React based project...
+                  
+                ( Your Message )
+                  `}
                 onChange={(e) => {
                   const value = e.target.value;
                   setMessage(value);
-
-                  // ✅ validate while typing ONLY after blur
                   if (touched.message) {
                     validateField("message", value);
                   }

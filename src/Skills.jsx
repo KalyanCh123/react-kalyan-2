@@ -34,7 +34,7 @@ const Skills = () => {
         marginTop: "150px",
       }}
     >
-      <Typography sx={{ color: "#1976d2", fontSize: "2.5em", mb: 1 }}>
+      <Typography className="about-title">
         Technical Skills
       </Typography>
 
@@ -182,7 +182,7 @@ const Skills = () => {
         </Box>
       </Box>
 
-      <Typography sx={{ color: "#1976d2", fontSize: "2.5em", mb: 1 }}>
+      <Typography className="about-title">
         Soft Skills
       </Typography>
 

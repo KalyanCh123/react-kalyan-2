@@ -8,13 +8,13 @@ const Projects = () => {
   return (
     <Box sx={{ mt: "100px" }}>
       <Container maxWidth="md">
-        <Typography variant="h4" align="center" color="#1976d2" gutterBottom>
+        <Typography className="about-title" gutterBottom>
           Projects
         </Typography>
 
-        <Typography align="center" fontWeight="bold" mb={5}>
+        <Box className='about-texts'><Typography component="p">
           A showcase of my technical projects and contributions.
-        </Typography>
+        </Typography></Box>
 
         <Box className="timeline">
 

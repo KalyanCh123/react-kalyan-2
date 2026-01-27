@@ -50,25 +50,15 @@ export default function Certifications({ setLoading }) {
 
   return (
     <Box sx={{ padding: "100px 60px", background: "#cfc6c6" }}>
-      <Typography
-        variant="h4"
-        textAlign="center"
-        fontWeight="bold"
-        color="#1976d2"
-      >
+      <Typography className="about-title">
         Certifications
       </Typography>
 
-      <Typography
-        textAlign="center"
-        mt={2}
-        mb={6}
-        fontWeight="bold"
-        color="#363637fe"
-      >
+      <Box className="about-texts">
+        <Typography component="p">
         Professional credentials that validate my expertise in React and related
         technologies and sales.
-      </Typography>
+      </Typography></Box>
 
       <Grid container spacing={4} justifyContent="center">
         {certificates.map((cert, i) => (
