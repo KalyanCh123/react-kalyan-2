@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const reactSkills = [
   { name: "React.js", value: "90%" },
@@ -23,183 +23,54 @@ const uiSkills = [
 
 const Skills = () => {
   return (
-    <Box
-      id="skills"
-      sx={{
-        padding: "20px 0",
-        backgroundColor: "#1a1a2e",
-        color: "#fff",
-        fontFamily: "Arial, sans-serif",
-        textAlign: "center",
-        marginTop: "150px",
-      }}
-    >
-      <Typography className="about-title">
-        Technical Skills
-      </Typography>
-
-      <Typography sx={{ color: "#b0b0b0", mb: 3 }}>
+    <Box id="skills" className="skills-section">
+      <Typography className="about-title">Technical Skills</Typography>
+      <Typography className="skills-subtitle">
         A showcase of my expertise in React development and related technologies.
       </Typography>
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          mb: "40px",
-        }}
-      >
-        <Box
-          sx={{
-            flex: 1,
-            padding: "30px",
-            background: "#0f0f1a",
-            borderRadius: "10px",
-            margin: "0 10px",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-            textAlign: "left",
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: "1.2em",
-              fontWeight: "bold",
-              color: "#00d4ff",
-              mb: "25px",
-            }}
-          >
-            React Ecosystem
-          </Typography>
-
+      <Box className="skills-container">
+        <Box className="skill-card">
+          <Typography className="skills-card-title">React Ecosystem</Typography>
           {reactSkills.map((skill) => (
-            <Box
-              key={skill.name}
-              sx={{ display: "flex", alignItems: "center", mb: "14px" }}
-            >
-              <Typography sx={{ flex: 2, fontSize: "0.9em", color: "#d0d0d0" }}>
-                {skill.name}
-              </Typography>
-
-              <Box
-                sx={{
-                  flex: 6,
-                  height: "10px",
-                  backgroundColor: "#333",
-                  borderRadius: "5px",
-                  overflow: "hidden",
-                  mx: "10px",
-                }}
-              >
+            <Box key={skill.name} className="skill-row">
+              <Typography className="skill-name">{skill.name}</Typography>
+              <Box className="skill-bar">
                 <Box
-                  sx={{
-                    height: "100%",
-                    backgroundColor: "#00d4ff",
-                    width: skill.value,
-                    borderRadius: "5px",
-                    transition: "width 0.3s ease",
-                  }}
+                  className="skill-progress"
+                  style={{ width: skill.value }}
                 />
               </Box>
-
-              <Typography
-                sx={{
-                  flex: 1,
-                  fontSize: "0.9em",
-                  color: "#00d4ff",
-                  textAlign: "right",
-                }}
-              >
-                {skill.value}
-              </Typography>
+              <Typography className="skill-value">{skill.value}</Typography>
             </Box>
           ))}
         </Box>
 
-        <Box
-          sx={{
-            flex: 1,
-            padding: "20px",
-            background: "#0f0f1a",
-            borderRadius: "10px",
-            margin: "0 10px",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-            textAlign: "left",
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: "1.2em",
-              fontWeight: "bold",
-              color: "#00d4ff",
-              mb: "15px",
-            }}
-          >
+        <Box className="skill-card">
+          <Typography className="skills-card-title">
             Frontend UI & Tools
           </Typography>
-
           {uiSkills.map((skill) => (
-            <Box
-              key={skill.name}
-              sx={{ display: "flex", alignItems: "center", mb: "10px" }}
-            >
-              <Typography sx={{ flex: 2, fontSize: "0.9em", color: "#d0d0d0" }}>
-                {skill.name}
-              </Typography>
-
-              <Box
-                sx={{
-                  flex: 6,
-                  height: "10px",
-                  backgroundColor: "#333",
-                  borderRadius: "5px",
-                  overflow: "hidden",
-                  mx: "10px",
-                }}
-              >
+            <Box key={skill.name} className="skill-row">
+              <Typography className="skill-name">{skill.name}</Typography>
+              <Box className="skill-bar">
                 <Box
-                  sx={{
-                    height: "100%",
-                    backgroundColor: "#00d4ff",
-                    width: skill.value,
-                  }}
+                  className="skill-progress"
+                  style={{ width: skill.value }}
                 />
               </Box>
-
-              <Typography
-                sx={{
-                  flex: 1,
-                  fontSize: "0.9em",
-                  color: "#00d4ff",
-                  textAlign: "right",
-                }}
-              >
-                {skill.value}
-              </Typography>
+              <Typography className="skill-value">{skill.value}</Typography>
             </Box>
           ))}
         </Box>
       </Box>
 
-      <Typography className="about-title">
-        Soft Skills
-      </Typography>
-
-      <Typography sx={{ color: "#b0b0b0", mb: 3 }}>
+      <Typography className="about-title">Soft Skills</Typography>
+      <Typography className="skills-subtitle">
         Key interpersonal skills that support effective frontend development.
       </Typography>
 
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          gap: "20px",
-        }}
-      >
+      <Box className="soft-skills-container">
         {[
           {
             title: "UI Problem Solving",
@@ -218,24 +89,9 @@ const Skills = () => {
             text: "Skilled at managing tasks efficiently, meeting deadlines, and maintaining clean, readable code with proper structure and documentation.",
           },
         ].map((skill) => (
-          <Box
-            key={skill.title}
-            sx={{
-              flex: "1 1 calc(50% - 20px)",
-              minWidth: "300px",
-              padding: "20px",
-              background: "#0f0f1a",
-              borderRadius: "10px",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-              textAlign: "left",
-            }}
-          >
-            <Typography sx={{ fontSize: "1.2em", color: "#00d4ff", mb: 1 }}>
-              {skill.title}
-            </Typography>
-            <Typography sx={{ fontSize: "0.9em", color: "#d0d0d0" }}>
-              {skill.text}
-            </Typography>
+          <Box key={skill.title} className="skill-card soft-card">
+            <Typography className="soft-title">{skill.title}</Typography>
+            <Typography className="soft-text">{skill.text}</Typography>
           </Box>
         ))}
       </Box>
