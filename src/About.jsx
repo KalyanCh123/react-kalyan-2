@@ -10,7 +10,7 @@ testing frameworks like Jest and React Testing Library, and best practices in so
 
 const About = () => {
   return (
-    <Box id="about" className="about-container">
+    <Box id="about" className="cert-section about-container">
       <Typography className="about-title">
         About
       </Typography>

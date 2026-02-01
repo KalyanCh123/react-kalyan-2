@@ -5,7 +5,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ChatIcon from "@mui/icons-material/Chat";
 
-const Contact = ({ setLoading }) => {
+const Contact = ({ loading,setLoading }) => {
   const nameRef = useRef(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -67,9 +67,16 @@ const Contact = ({ setLoading }) => {
     document.addEventListener("visibilitychange", handler);
     return () => document.removeEventListener("visibilitychange", handler);
   }, [pendingSuccess]);
+  const [closing,setClosing]=useState(false)
   const handleCloseSuccess = () => {
     setShowSuccess(false);
+    setClosing(true);
+    setLoading(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      setClosing(false);
+      setLoading(false);
+    }, 1200);
   };
   const card = {
     background: "linear-gradient(180deg, #0f172a, #020617)",
@@ -143,7 +150,7 @@ const Contact = ({ setLoading }) => {
     }, delay);
   };
   return (
-    <Box sx={{ p: { xs: 2, md: 6 }, background: "linear-gradient(135deg, #e5e7eb, #cbd5e1)" }}>
+    <Box className="contact-box">
       <Typography className="about-title">
         Get In Touch
       </Typography>
@@ -316,7 +323,7 @@ const Contact = ({ setLoading }) => {
               <Grid item xs={12} sm={6}>
                 <Button
                   fullWidth
-                  disabled={!isFormValid}
+                  disabled={!isFormValid || loading}
                   onClick={handleWhatsAppSend}
                   sx={{
                     background: "linear-gradient(135deg, #22c55e, #16a34a)",
@@ -327,11 +334,11 @@ const Contact = ({ setLoading }) => {
                 >
                   Send WhatsApp
                 </Button>
-              </Grid>&nbsp;&nbsp;&nbsp;&nbsp;
+              </Grid>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <Grid item xs={12} sm={6}>
                 <Button
                   fullWidth
-                  disabled={!isFormValid}
+                  disabled={!isFormValid || loading}
                   onClick={handleEmailSend}
                   sx={{
                     background: "linear-gradient(135deg, #2563eb, #1e40af)",
@@ -350,7 +357,7 @@ const Contact = ({ setLoading }) => {
       {<Modal open={showSuccess}>
         <Box className="modal-overlay">
           <Box className="modal-content">
-            <button className="close-btn" onClick={handleCloseSuccess}>✕</button>
+            <Button className="close-btn" onClick={handleCloseSuccess} disabled={closing || loading}>✕</Button>
             <div className="check">✔</div>
             <h2>Thank You! 😊</h2>
             <p>
@@ -358,9 +365,9 @@ const Contact = ({ setLoading }) => {
               <br />
               <strong>Kalyan</strong> will get back to you shortly.
             </p>
-            <button className="ok-btn" onClick={handleCloseSuccess}>
+            <Button className="ok-btn" onClick={handleCloseSuccess} disabled={closing || loading}>
               Okay
-            </button>
+            </Button>
           </Box>
         </Box>
       </Modal>}

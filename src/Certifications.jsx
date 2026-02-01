@@ -32,7 +32,7 @@ const certificates = [
   }
 ];
 
-export default function Certifications({ setLoading }) {
+export default function Certifications({ setLoading, loading }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(null);
   const [closing, setClosing] = useState(false);
@@ -118,8 +118,8 @@ export default function Certifications({ setLoading }) {
             </Grid>
           </Grid>
           <div className="modal-btn-wrap">
-            <Button className="modal-close" onClick={handleClose} disabled={closing}>
-              {closing ? "CLOSING..." : "CLOSE"}
+            <Button className="modal-close" onClick={handleClose} disabled={closing || loading}>
+              CLOSE
             </Button>
           </div>
         </Box>

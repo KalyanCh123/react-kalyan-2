@@ -3,37 +3,53 @@ import { Box, Typography } from "@mui/material";
 
 const Experience = () => {
   return (
-    <Box id="experience">
+    <Box id="experience" className="cert-section" mt={3}>
       <Typography className="about-title">
         Experience
       </Typography>
-
       <Box className='about-texts'><Typography component="p">
         My journey developing technical, communication, and problem-solving
         skills across front-end development and sales roles.
       </Typography></Box>
-
       <Box className="experience-timeline">
         <Box className="experience-card">
           <Box className="timeline-dot" />
           <Typography component="h3">
             React Developer (Web / Frontend)
           </Typography>
-          <Typography className="experience-company">
+          {/* <Typography className="experience-company">
             <strong>Virinchi Ltd.</strong>
-          </Typography>
+          </Typography> */}
+          <Typography className="experience-company">
+  <a
+    href="https://www.virinchi.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      textDecoration: "none",
+      color: "inherit",
+      fontWeight: 600,
+      borderBottom: "2px solid transparent",
+      transition: "border-color 0.3s ease",
+      cursor: "pointer",
+    }}
+    onMouseEnter={(e) => (e.target.style.borderBottomColor = "currentColor")}
+    onMouseLeave={(e) => (e.target.style.borderBottomColor = "transparent")}
+  >
+    Virinchi Ltd.
+  </a>
+</Typography>
+
           <Typography className="experience-duration">
             2024 – 2026 (Present)
           </Typography>
-
           <ul>
             <li>Developing scalable, high-performance front-end applications using React and Redux.</li>
             <li>Built reusable UI components and integrated REST APIs.</li>
             <li>Optimized performance, accessibility, and cross-browser compatibility.</li>
             <li>Collaborated with design and backend teams.</li>
           </ul>
-
-          <Typography className="experience-label">Technologies:</Typography>
+          <Typography className="experience-company"><strong>Technologies:</strong></Typography>
           <Box className="chip-container">
             {["React", "Redux", "JavaScript", "HTML5/CSS3", "APIs", "Formik"].map(
               (tech) => (
@@ -44,25 +60,42 @@ const Experience = () => {
             )}
           </Box>
         </Box>
-
         <Box className="experience-card">
           <Box className="timeline-dot" />
           <Typography component="h3">Inside Sales Specialist</Typography>
-          <Typography className="experience-company">
+          {/* <Typography className="experience-company">
             <strong>Byju&apos;s Edu.Tech</strong>
-          </Typography>
+          </Typography> */}
+          <Typography className="experience-company">
+  <a
+    href="https://byjus.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      textDecoration: "none",
+      color: "inherit",
+      fontWeight: 600,
+      borderBottom: "2px solid transparent",
+      transition: "border-color 0.3s ease",
+      cursor: "pointer",
+    }}
+    onMouseEnter={(e) => (e.target.style.borderBottomColor = "currentColor")}
+    onMouseLeave={(e) => (e.target.style.borderBottomColor = "transparent")}
+  >
+    Byju&apos;s Edu.Tech
+  </a>
+</Typography>
+
           <Typography className="experience-duration">
             2022 – 2023
           </Typography>
-
           <ul>
             <li>Managed inbound and outbound sales calls.</li>
             <li>Demonstrated products to potential customers.</li>
             <li>Achieved monthly sales targets consistently.</li>
             <li>Maintained CRM records.</li>
           </ul>
-
-          <Typography className="experience-label">Skills:</Typography>
+          <Typography className="experience-company"><strong>Skills:</strong></Typography>
           <Box className="chip-container">
             {["Lead Generation", "CRM", "Customer Engagement", "Communication", "Sales Target"].map(
               (skill) => (
@@ -73,25 +106,42 @@ const Experience = () => {
             )}
           </Box>
         </Box>
-
         <Box className="experience-card">
           <Box className="timeline-dot" />
           <Typography component="h3">Sales Associate</Typography>
-          <Typography className="experience-company">
+          {/* <Typography className="experience-company">
             <strong>Mind Brink Media Pvt Ltd.</strong>
-          </Typography>
+          </Typography> */}
+          <Typography className="experience-company">
+  <a
+    href="https://www.ambitionbox.com/overview/mind-brink-media-overview"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      textDecoration: "none",
+      color: "inherit",
+      fontWeight: 600,
+      borderBottom: "2px solid transparent",
+      transition: "border-color 0.3s ease",
+      cursor: "pointer",
+    }}
+    onMouseEnter={(e) => (e.target.style.borderBottomColor = "currentColor")}
+    onMouseLeave={(e) => (e.target.style.borderBottomColor = "transparent")}
+  >
+    Mind Brink Media Pulse Pvt Ltd.
+  </a>
+</Typography>
+
           <Typography className="experience-duration">
             2020 – 2022
           </Typography>
-
           <ul>
             <li>Handled customer inquiries and product explanations.</li>
             <li>Maintained strong client relationships.</li>
             <li>Assisted in sales reporting and lead generation.</li>
             <li>Worked with marketing teams on promotions.</li>
           </ul>
-
-          <Typography className="experience-label">Skills:</Typography>
+          <Typography className="experience-company"><strong>Skills:</strong></Typography>
           <Box className="chip-container">
             {["Client Management", "Lead Generation", "Sales Reporting", "Customer Service", "Communication"].map(
               (skill) => (
@@ -106,5 +156,4 @@ const Experience = () => {
     </Box>
   );
 };
-
 export default Experience;

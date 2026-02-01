@@ -23,7 +23,7 @@ const uiSkills = [
 
 const Skills = () => {
   return (
-    <Box id="skills" className="skills-section">
+    <Box id="skills" className="cert-section skills-section">
       <Typography className="about-title">Technical Skills</Typography>
       <Typography className="skills-subtitle">
         A showcase of my expertise in React development and related technologies.

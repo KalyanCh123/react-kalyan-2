@@ -68,14 +68,14 @@ function App() {
     <>
       {loading && <Loader />}
       <Header activeTab={activeTab} scrollToSection={scrollToSection} />
-      <div className="cert-section">
+      <div style={{ background: "#c3b7b7fe",marginTop:'10px' }}>
         <div id="home"><Home /></div>
         <div id="about"><About /></div>
         <div id="experience"><Experience /></div>
         <div id="skills"><Skills /></div>
         <div id="projects"><Projects /></div>
-        <div id="certifications"><Certifications setLoading={setLoading} /></div>
-        <div id="contact"><Contact setLoading={setLoading} /></div>
+        <div id="certifications"><Certifications setLoading={setLoading} loading={loading} /></div>
+        <div id="contact"><Contact setLoading={setLoading} loading={loading} /></div>
       </div>
     </>
   );
