@@ -73,7 +73,7 @@ function App() {
         <div id="about"><About /></div>
         <div id="experience"><Experience /></div>
         <div id="skills"><Skills /></div>
-        <div id="projects"><Projects /></div>
+        <div id="projects"><Projects setLoading={setLoading} loading={loading}/></div>
         <div id="certifications"><Certifications setLoading={setLoading} loading={loading} /></div>
         <div id="contact"><Contact setLoading={setLoading} loading={loading} /></div>
       </div>

@@ -418,6 +418,28 @@
   font-weight: bold !important;
   color: red !important;
 }
+.company-link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+.company-name {
+  text-decoration: underline;
+}
+.company-profile-text.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #93c5fd;
+  background: rgba(239, 240, 240, 0.12);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+  transition: all 0.25s ease;
+}
+.company-link:hover .company-profile-text.badge {
+  background: rgba(254, 254, 255, 0.2);
+  color: #bfdbfe;
+}
 .experience-title {
   font-size: 42px;
   font-weight: 700;
@@ -851,15 +873,16 @@ body {
 .show-more {
   display: inline-block !important;
   margin-top: 14px !important;
-  color: #4fc3f7 !important;
+  color: #ffd700 !important;
   font-weight: bold !important;
   cursor: pointer !important;
   user-select: none !important;
   transition: color 0.3s ease, transform 0.3s ease !important;
 }
 .show-more:hover {
-  color: #ffd700 !important;
+  color: #4fc3f7 !important;
   transform: translateX(6px) !important;
+  text-decoration: underline;
 }
 .modal-overlay {
   position: fixed;

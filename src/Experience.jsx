@@ -17,29 +17,19 @@ const Experience = () => {
           <Typography component="h3">
             React Developer (Web / Frontend)
           </Typography>
-          {/* <Typography className="experience-company">
-            <strong>Virinchi Ltd.</strong>
-          </Typography> */}
           <Typography className="experience-company">
-  <a
-    href="https://www.virinchi.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{
-      textDecoration: "none",
-      color: "inherit",
-      fontWeight: 600,
-      borderBottom: "2px solid transparent",
-      transition: "border-color 0.3s ease",
-      cursor: "pointer",
-    }}
-    onMouseEnter={(e) => (e.target.style.borderBottomColor = "currentColor")}
-    onMouseLeave={(e) => (e.target.style.borderBottomColor = "transparent")}
-  >
-    Virinchi Ltd.
-  </a>
-</Typography>
-
+            <a
+              href="https://www.virinchi.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="company-link"
+            >
+              <span className="company-name">
+                Virinchi Ltd.
+              </span>
+              &nbsp;<span className="company-profile-text badge">View Company Profile ↗</span>
+            </a>
+          </Typography>
           <Typography className="experience-duration">
             2024 – 2026 (Present)
           </Typography>
@@ -63,29 +53,18 @@ const Experience = () => {
         <Box className="experience-card">
           <Box className="timeline-dot" />
           <Typography component="h3">Inside Sales Specialist</Typography>
-          {/* <Typography className="experience-company">
-            <strong>Byju&apos;s Edu.Tech</strong>
-          </Typography> */}
           <Typography className="experience-company">
-  <a
-    href="https://byjus.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{
-      textDecoration: "none",
-      color: "inherit",
-      fontWeight: 600,
-      borderBottom: "2px solid transparent",
-      transition: "border-color 0.3s ease",
-      cursor: "pointer",
-    }}
-    onMouseEnter={(e) => (e.target.style.borderBottomColor = "currentColor")}
-    onMouseLeave={(e) => (e.target.style.borderBottomColor = "transparent")}
-  >
-    Byju&apos;s Edu.Tech
-  </a>
-</Typography>
-
+            <a
+              href="https://byjus.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="company-link"
+            >
+              <span className="company-name">
+                Byju&apos;s Edu.Tech
+              </span>&nbsp;<span className="company-profile-text badge">View Company Profile ↗</span>
+            </a>
+          </Typography>
           <Typography className="experience-duration">
             2022 – 2023
           </Typography>
@@ -109,29 +88,19 @@ const Experience = () => {
         <Box className="experience-card">
           <Box className="timeline-dot" />
           <Typography component="h3">Sales Associate</Typography>
-          {/* <Typography className="experience-company">
-            <strong>Mind Brink Media Pvt Ltd.</strong>
-          </Typography> */}
           <Typography className="experience-company">
-  <a
-    href="https://www.ambitionbox.com/overview/mind-brink-media-overview"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{
-      textDecoration: "none",
-      color: "inherit",
-      fontWeight: 600,
-      borderBottom: "2px solid transparent",
-      transition: "border-color 0.3s ease",
-      cursor: "pointer",
-    }}
-    onMouseEnter={(e) => (e.target.style.borderBottomColor = "currentColor")}
-    onMouseLeave={(e) => (e.target.style.borderBottomColor = "transparent")}
-  >
-    Mind Brink Media Pulse Pvt Ltd.
-  </a>
-</Typography>
-
+            <a
+              href="https://www.ambitionbox.com/overview/mind-brink-media-overview"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="company-link"
+            >
+              <span className="company-name">
+                Mind Brink Media Pulse Pvt Ltd.
+              </span>
+              &nbsp;<span className="company-profile-text badge">View Company Profile ↗</span>
+            </a>
+          </Typography>
           <Typography className="experience-duration">
             2020 – 2022
           </Typography>
