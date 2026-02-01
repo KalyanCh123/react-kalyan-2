@@ -68,7 +68,7 @@ function App() {
     <>
       {loading && <Loader />}
       <Header activeTab={activeTab} scrollToSection={scrollToSection} />
-      <div style={{ background: "#c3b7b7fe" }}>
+      <div className="cert-section">
         <div id="home"><Home /></div>
         <div id="about"><About /></div>
         <div id="experience"><Experience /></div>

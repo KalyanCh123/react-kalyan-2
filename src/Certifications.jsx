@@ -7,8 +7,7 @@ const certificates = [
     year: "React 2025",
     description: "Validates skills in developing custom applications using React, including component-based architecture and state management.",
     ribbon: "React - Developer",
-    border: "#1c73a5ff",
-    ribbonBg: "#648390ff",
+    theme: "react",
     instructor: "Jane Smith",
     date: "Dec 20, 2025"
   },
@@ -17,8 +16,7 @@ const certificates = [
     year: "React 2024",
     description: "Demonstrates foundational React knowledge, including navigating the framework and component basics.",
     ribbon: "Web / Front-End",
-    border: "#c0c0c0",
-    ribbonBg: "#c0c0c0",
+    theme: "web",
     instructor: "Mark Taylor",
     date: "Dec 15, 2024"
   },
@@ -28,8 +26,7 @@ const certificates = [
     description:
       "Validates expertise in sales strategies, CRM, and achieving performance targets.",
     ribbon: "Sales - Specialist",
-    border: "#ffa500",
-    ribbonBg: "#ddaf16ff",
+    theme: "sales",
     instructor: "Sarah Johnson",
     date: "Dec 20, 2023"
   }
@@ -38,6 +35,7 @@ const certificates = [
 export default function Certifications({ setLoading }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(null);
+  const [closing, setClosing] = useState(false);
 
   const handleOpen = (cert) => {
     setLoading(true);
@@ -45,56 +43,39 @@ export default function Certifications({ setLoading }) {
       setActive(cert);
       setOpen(true);
       setLoading(false);
-    }, 500);
+    }, 800);
+  };
+  const handleClose = () => {
+    setClosing(true);
+    setLoading(true);
+    setTimeout(() => {
+      setOpen(false);
+      setActive(null);
+      setClosing(false);
+      setLoading(false);
+    }, 800);
   };
 
   return (
-    <Box sx={{ padding: "100px 60px", background: "#cfc6c6" }}>
-      <Typography className="about-title">
-        Certifications
-      </Typography>
-
+    <Box className="cert-section">
+      <Typography className="about-title">Certifications</Typography>
       <Box className="about-texts">
         <Typography component="p">
-        Professional credentials that validate my expertise in React and related
-        technologies and sales.
-      </Typography></Box>
-
+          Professional credentials that validate my expertise in React and related
+          technologies and sales.
+        </Typography>
+      </Box>
       <Grid container spacing={4} justifyContent="center">
         {certificates.map((cert, i) => (
           <Grid item key={i}>
-            <Box
-              sx={{
-                width: 340,
-                minHeight: 260,
-                background: "#0f172a",
-                color: "white",
-                padding: "25px",
-                borderRadius: "14px",
-                boxShadow: "0 8px 25px rgba(0,0,0,0.6)",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between"
-              }}
-            >
+            <Box className={`cert-card cert-${cert.theme}`}>
               <Box>
-                <Typography fontSize={20} fontWeight="bold">
-                  {cert.title}
-                </Typography>
-                <Typography mt={1} color="#4fc3f7" fontSize={14}>
-                  {cert.year}
-                </Typography>
-                <Typography mt={2} fontSize={15}>
-                  {cert.description}
-                </Typography>
+                <Typography className="cert-title">{cert.title}</Typography>
+                <Typography className="cert-year">{cert.year}</Typography>
+                <Typography className="cert-desc">{cert.description}</Typography>
               </Box>
-
               <Typography
-                mt={3}
-                textAlign="center"
-                fontWeight="bold"
-                color="#ffd700"
-                sx={{ cursor: "pointer" }}
+                className="cert-view"
                 onClick={() => handleOpen(cert)}
               >
                 View Certificate
@@ -103,105 +84,44 @@ export default function Certifications({ setLoading }) {
           </Grid>
         ))}
       </Grid>
-
-      <Typography
-        textAlign="center"
-        mt={6}
-        fontWeight="bold"
-        color="red"
-      >
-        * * * Continuously expanding my knowledge and skills through
-        certifications and professional development. * * *
+      <Typography className="cert-footer">
+        * * * Continuously expanding my knowledge and skills through certifications and professional development. * * *
       </Typography>
-
       <Modal open={open} onClose={() => setOpen(false)}>
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: 820,
-            background: "#fff",
-            borderRadius: "18px",
-            border: `15px solid ${active?.border}`,
-            padding: "50px",
-            boxShadow: "0 10px 40px rgba(0,0,0,0.8)",
-            fontFamily: "Georgia, serif"
-          }}
-        >
-          <Box
-            sx={{
-              position: "absolute",
-              top: -30,
-              left: "50%",
-              transform: "translateX(-50%) rotate(-18deg)",
-              background: active?.ribbonBg,
-              color: "#fff",
-              padding: "8px 30px",
-              fontWeight: "bold"
-            }}
-          >
+        <Box className={`cert-modal modal-${active?.theme}`}>
+          <Box className={`cert-ribbon ribbon-${active?.theme}`}>
             {active?.ribbon}
           </Box>
-
-          <Typography
-            variant="h3"
-            textAlign="center"
-            fontWeight="bold"
-            color="#1976d2"
-            mb={3}
-          >
+          <Typography className="modal-title">
             Certificate of Completion
           </Typography>
-
-          <Typography textAlign="center" fontSize={18}>
+          <Typography className="modal-sub">
             This certificate is proudly presented to
           </Typography>
-
-          <Typography
-            textAlign="center"
-            fontSize={32}
-            fontWeight="bold"
-            color="#0d47a1"
-            mt={2}
-            mb={3}
-          >
+          <Typography className="modal-name">
             Chekuru Kalyan
           </Typography>
-
-          <Typography textAlign="center" fontSize={18}>
+          <Typography className="modal-desc">
             For successfully completing the{" "}
             <strong>{active?.title}</strong> program.
           </Typography>
-
-          <Grid container mt={6} justifyContent="space-between">
-            <Grid item textAlign="center">
-              <Box sx={{ borderTop: "2px solid #1976d2", width: 220 }} />
-              <Typography fontFamily="cursive">
-                {active?.instructor}
-              </Typography>
-              <Typography fontWeight="bold">Instructor</Typography>
+          <Grid container className="modal-sign-row">
+            <Grid item className="modal-sign-box">
+              <div className="modal-line"></div>
+              <Typography className="modal-sign">{active?.instructor}</Typography>
+              <Typography className="modal-label">Instructor</Typography>
             </Grid>
-
-            <Grid item textAlign="center">
-              <Box sx={{ borderTop: "2px solid #1976d2", width: 220 }} />
-              <Typography fontFamily="cursive">
-                {active?.date}
-              </Typography>
-              <Typography fontWeight="bold">Date</Typography>
+            <Grid item className="modal-sign-box">
+              <div className="modal-line"></div>
+              <Typography className="modal-sign">{active?.date}</Typography>
+              <Typography className="modal-label">Date</Typography>
             </Grid>
           </Grid>
-
-          <Box textAlign="center" mt={6}>
-            <Button
-              variant="contained"
-              sx={{ padding: "10px 30px", fontWeight: "bold" }}
-              onClick={() => setOpen(false)}
-            >
-              Close
+          <div className="modal-btn-wrap">
+            <Button className="modal-close" onClick={handleClose} disabled={closing}>
+              {closing ? "CLOSING..." : "CLOSE"}
             </Button>
-          </Box>
+          </div>
         </Box>
       </Modal>
     </Box>
