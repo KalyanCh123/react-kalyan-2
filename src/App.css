@@ -344,6 +344,8 @@
 }
 .cert-section {
   padding: 50px 30px !important;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
   background: linear-gradient(135deg, #f8fafc, #e2e8f0) !important;
 }
 .cert-card {
@@ -496,7 +498,7 @@ body {
 }
 .skills-section {
   padding: 20px 0;
-  margin: 150px 28px 0;
+  margin: 15px 28px 0;
   background: linear-gradient(180deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
   color: #fff;
   font-family: Arial, sans-serif;
@@ -605,6 +607,11 @@ body {
 .soft-card p {
   color: #d0d0d0;
   font-size: 14px;
+}
+.contact-box {
+  background: linear-gradient(135deg, #e5e7eb, #cbd5e1);
+  margin: 25px 20px 20px 20px;
+  padding: 16px;
 }
 .contact-section {
   padding: 60px;
@@ -770,77 +777,87 @@ body {
     transform: rotate(360deg);
   }
 }
+.projects-wrapper {
+  margin-top: 100px !important;
+}
 .timeline {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-  padding-left: 60px;
+  position: relative !important;
+  padding-left: 55px !important;
 }
 .timeline::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: #3782ce;
+  content: "" !important;
+  position: absolute !important;
+  left: 22px !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 3px !important;
+  background: linear-gradient(#1976d2, #4fc3f7) !important;
 }
 .project-card {
-  background: #0f172a;
-  color: white;
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 40px;
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #0f172a, #020617) !important;
+  color: #fff !important;
+  padding: 28px !important;
+  border-radius: 16px !important;
+  margin-bottom: 45px !important;
+  position: relative !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+  transform: translateY(-6px) !important;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85) !important;
 }
 .timeline-dot {
-  position: absolute;
-  left: -43px;
-  top: 22px;
-  width: 22px;
-  height: 22px;
-  background: #3782ce;
-  border-radius: 50%;
-  border: 3px solid white;
+  position: absolute !important;
+  left: -43px !important;
+  top: 32px !important;
+  width: 20px !important;
+  height: 20px !important;
+  background: #1976d2 !important;
+  border-radius: 50% !important;
+  border: 4px solid #fff !important;
+}
+.project-title {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  margin-bottom: 10px !important;
+}
+.project-desc {
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  margin-bottom: 10px !important;
 }
 .tech-stack {
-  margin: 12px 0;
+  margin-bottom: 14px !important;
 }
-.tech-stack span {
-  background: #0b3c5d;
-  color: #4fc3f7;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  margin-right: 8px;
-  display: inline-block;
+.tech-chip {
+  margin-right: 8px !important;
+  margin-bottom: 8px !important;
+  background: #0b3c5d !important;
+  color: #4fc3f7 !important;
+  font-size: 12px !important;
 }
-.project-card ul {
-  margin-top: 12px;
-  padding-left: 20px;
-  font-size: 14px;
-  color: #e0f7fa;
+.project-points {
+  margin-top: 14px !important;
+  padding-left: 20px !important;
+  font-size: 14px !important;
+  color: #e0f7fa !important;
 }
-.project-card ul li {
-  margin-bottom: 10px;
-  line-height: 1.6;
+.project-points li {
+  margin-bottom: 8px !important;
 }
 .show-more {
-  color: #4fc3f7;
-  cursor: pointer;
-  margin-top: 12px;
-  font-weight: bold;
-  transition: 0.3s;
+  display: inline-block !important;
+  margin-top: 14px !important;
+  color: #4fc3f7 !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: color 0.3s ease, transform 0.3s ease !important;
 }
 .show-more:hover {
-  color: #ffd700;
-  transform: translateX(5px);
+  color: #ffd700 !important;
+  transform: translateX(6px) !important;
 }
 .modal-overlay {
   position: fixed;
@@ -925,6 +942,18 @@ body {
 
 /*** MOBILE VIEW ***/
 @media (max-width: 768px) {
+    .timeline {
+      padding-left: 25px !important;
+    }
+    .timeline::before {
+      left: 10px !important;
+    }
+    .timeline-dot {
+      left: -32px !important;
+    }
+    .project-card {
+      padding: 22px !important;
+    }
     .profile-image {
       width: 100%;
       max-width: 260px;
@@ -948,6 +977,9 @@ body {
     }
     .cert-section {
       padding: 60px 20px !important;
+    }
+    .contact-box {
+      padding: 48px;
     }
     .header-container {
       flex-direction: column;
@@ -1039,17 +1071,11 @@ body {
       padding-left: 20px;
       border-left: 2px solid #1976d2;
     }
-    .timeline-dot {
-      left: -32px;
-    }
     .experience-card {
       max-width: 100%;
     }
     .skills-wrapper {
       padding: 0 15px;
-    }
-    .timeline {
-      padding-left: 20px;
     }
     .modal-content {
       width: 95%;
