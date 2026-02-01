@@ -25,10 +25,11 @@ const Skills = () => {
   return (
     <Box id="skills" className="cert-section skills-section">
       <Typography className="about-title">Technical Skills</Typography>
-      <Typography className="skills-subtitle">
-        A showcase of my expertise in React development and related technologies.
-      </Typography>
-
+      <Box className="about-texts">
+        <Typography component="p">
+          A showcase of my expertise in React development and related technologies.
+        </Typography>
+      </Box>
       <Box className="skills-container">
         <Box className="skill-card">
           <Typography className="skills-card-title">React Ecosystem</Typography>
@@ -45,7 +46,6 @@ const Skills = () => {
             </Box>
           ))}
         </Box>
-
         <Box className="skill-card">
           <Typography className="skills-card-title">
             Frontend UI & Tools
@@ -64,12 +64,12 @@ const Skills = () => {
           ))}
         </Box>
       </Box>
-
       <Typography className="about-title">Soft Skills</Typography>
-      <Typography className="skills-subtitle">
-        Key interpersonal skills that support effective frontend development.
-      </Typography>
-
+      <Box className="about-texts">
+        <Typography component="p">
+          Key interpersonal skills that support effective frontend development.
+        </Typography>
+      </Box>
       <Box className="soft-skills-container">
         {[
           {

@@ -12,40 +12,57 @@
   align-items: center;
 }
 .header-title {
-  font-weight: bold;
-  font-size: 55px !important;
-  color: #1976d2;
-  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.35);
-  margin: 0;
+  font-weight: 900 !important;
+  font-size: 56px !important;
+  color: #0280ff !important;
+  margin: 0 !important;
+  text-shadow:
+    2px 4px 6px rgba(0, 0, 0, 0.4),
+    0 12px 24px rgba(3, 226, 255, 0.55) !important;
+  transition: text-shadow 0.3s ease !important;
+}
+.header-title:hover {
+  text-shadow:
+    2px 4px 6px rgba(0, 0, 0, 0.4),
+    0 12px 24px rgba(4, 108, 255, 0.55) !important;
 }
 .header-tabs {
   display: flex;
-  gap: 30px;
+  gap: 16px !important;
   flex-wrap: wrap;
   align-items: center;
-  margin-right: 60px;
+  margin-right: 10px;
   padding-top: 50px;
 }
 .header-tab {
-  padding: 10px 24px;
-  background: #ffffff;
-  color: #2f2f2f;
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-  transition: all 0.25s ease;
+  padding: 10px 24px !important;
+  background: #ffffff !important;
+  color: #1f2937 !important;
+  border: none !important;
+  border-radius: 999px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease !important;
+
+  transform-origin: center !important;
+  will-change: transform !important;
 }
 .header-tab:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+  transform: scale(1.08) !important;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35) !important;
+  color: #2563eb !important;
 }
 .header-tab.active {
-  background: #1976d2;
-  color: #ffffff;
-  box-shadow: 0 8px 20px rgba(25, 118, 210, 0.45);
+  transform: scale(1.12) !important;
+  background: linear-gradient(135deg, #122c63, #1e40af) !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 32px rgba(1, 80, 252, 0.6) !important;
 }
 .scroll-wrapper {
   overflow: hidden;
@@ -142,7 +159,7 @@
 .about-container {
   text-align: center;
   padding-bottom: 60px;
-  margin-top: 50px;
+  margin-top: 23px;
 }
 .about-description {
   max-width: 800px;
@@ -158,6 +175,7 @@
   margin-top: 50px;
 }
 .about-card {
+  text-decoration: none;
   padding: 25px;
   border-radius: 16px;
   width: 350px;
@@ -423,8 +441,10 @@
   color: inherit;
   font-weight: 600;
 }
-.company-name {
-  text-decoration: underline;
+.company-names {
+  text-decoration: none;
+  font-weight: 1000;
+  font-size: 20px;
 }
 .company-profile-text.badge {
   font-size: 0.75rem;
@@ -439,6 +459,9 @@
 .company-link:hover .company-profile-text.badge {
   background: rgba(254, 254, 255, 0.2);
   color: #bfdbfe;
+}
+.company-link:hover .company-names {
+  text-decoration: underline;
 }
 .experience-title {
   font-size: 42px;
@@ -522,14 +545,14 @@ body {
 }
 .skills-section {
   padding: 20px 0;
-  margin: 15px 28px 0;
+  margin: 20px 28px 0;
   background: linear-gradient(180deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
   color: #fff;
   font-family: Arial, sans-serif;
   text-align: center;
 }
 .skills-subtitle {
-  color: #b0b0b0;
+  color: #212122fe;
   margin-bottom: 30px !important;
 }
 .skills-container {

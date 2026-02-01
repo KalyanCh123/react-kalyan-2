@@ -24,7 +24,7 @@ const Experience = () => {
               rel="noopener noreferrer"
               className="company-link"
             >
-              <span className="company-name">
+              <span className="company-names">
                 Virinchi Ltd.
               </span>
               &nbsp;<span className="company-profile-text badge">View Company Profile ↗</span>
@@ -60,7 +60,7 @@ const Experience = () => {
               rel="noopener noreferrer"
               className="company-link"
             >
-              <span className="company-name">
+              <span className="company-names">
                 Byju&apos;s Edu.Tech
               </span>&nbsp;<span className="company-profile-text badge">View Company Profile ↗</span>
             </a>
@@ -95,7 +95,7 @@ const Experience = () => {
               rel="noopener noreferrer"
               className="company-link"
             >
-              <span className="company-name">
+              <span className="company-names">
                 Mind Brink Media Pulse Pvt Ltd.
               </span>
               &nbsp;<span className="company-profile-text badge">View Company Profile ↗</span>
