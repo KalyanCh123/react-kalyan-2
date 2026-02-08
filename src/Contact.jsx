@@ -4,6 +4,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ChatIcon from "@mui/icons-material/Chat";
+import Tooltip from "@mui/material/Tooltip";
 
 const Contact = ({ loading,setLoading }) => {
   const nameRef = useRef(null);
@@ -195,6 +196,7 @@ const Contact = ({ loading,setLoading }) => {
             <Typography mt={1}>🌍 Based In : India</Typography>
             <Typography mt={3}>Connect With Me</Typography>
             <Box mt={3.5} display="flex" gap={2} mb={2}>
+              <Tooltip title="Linked In" arrow placement="bottom">
               <IconButton
                 onClick={() =>
                   runWithPageLoader(() =>
@@ -208,6 +210,8 @@ const Contact = ({ loading,setLoading }) => {
               >
                 <LinkedInIcon sx={{ color: "#fff" }} />
               </IconButton>
+              </Tooltip>
+              <Tooltip title="Whats App" arrow placement="bottom">
               <IconButton
                 onClick={() =>
                   runWithPageLoader(() =>
@@ -218,16 +222,20 @@ const Contact = ({ loading,setLoading }) => {
               >
                 <WhatsAppIcon sx={{ color: "#fff" }} />
               </IconButton>
+              </Tooltip>
+              <Tooltip title="Git Hub" arrow placement="bottom">
               <IconButton
                 onClick={() =>
                   runWithPageLoader(() =>
                     window.open("https://github.com/KalyanCh123", "_blank")
                   )
                 }
-                sx={{ ...iconHover, background: "#24292e" }}
+                sx={{ ...iconHover, background: "#8b554a" }}
               >
                 <GitHubIcon sx={{ color: "#fff" }} />
               </IconButton>
+              </Tooltip>
+              <Tooltip title="Contact Me" arrow placement="bottom">
               <IconButton
                 onClick={() =>
                   runWithPageLoader(() => {
@@ -242,7 +250,7 @@ const Contact = ({ loading,setLoading }) => {
               >
                 <ChatIcon sx={{ color: "#fff" }} />
               </IconButton>
-
+              </Tooltip>
             </Box>
           </Box>
         </Grid>

@@ -45,7 +45,7 @@ function App() {
     setActiveTab(tab);
     setTimeout(() => setLoading(false), 1000);
   };
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const header = document.getElementById("site-header");
@@ -68,7 +68,7 @@ function App() {
     <>
       {loading && <Loader />}
       <Header activeTab={activeTab} scrollToSection={scrollToSection} />
-      <div style={{ background: "#c3b7b7fe",marginTop:'10px' }}>
+      <div className="page-container">
         <div id="home"><Home /></div>
         <div id="about"><About /></div>
         <div id="experience"><Experience /></div>

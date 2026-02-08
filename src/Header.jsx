@@ -25,7 +25,6 @@ const Header = ({ activeTab, scrollToSection }) => {
             disableRipple
             onClick={() => scrollToSection(tab)}
             className={`header-tab ${activeTab === tab ? "active" : ""}`}
-            aria-current={activeTab === tab ? "page" : undefined}
           >
             {tab}
           </Button>
